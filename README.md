@@ -1,3 +1,3 @@
 GEO HTML5 y NODE
 
-Projecto simple que muestra como geolocalizar con html5.
+Projecto que geolocaliza a los usuarios en un mapa y muestra su nick en tiempo real.
