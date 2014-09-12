@@ -1,0 +1,9 @@
+{
+  "name": "geo",
+  "version": "0.0.0",  
+  "main": "app.js",
+  "dependencies": {    
+    "express":"*" ,
+    "socket.io":"*"    
+      }
+ }
