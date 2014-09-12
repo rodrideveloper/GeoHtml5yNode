@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script>
+		var coordenadas={
+			lat:0,
+			lon:0
+		};
+		$(document).ready(inicio);
+
+		function inicio(){
+			
+			 navigator.geolocation.getCurrentPosition(sucess,nofound);
+		}
+
+		function sucess(position){
+			coordenadas.lat=position.coords.latitude;
+			coordenadas.lon=position.coords.longitude;
+			var precision = position.coords.accuracy; 
+
+			 var mapOptions = {
+
+			        zoom: 16,
+
+			        center: new google.maps.LatLng(coordenadas.lat, coordenadas.lon),			        
+
+			        mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    			}
+    		 	
+    			map = new google.maps.Map($("#mapa").get(0), mapOptions);
+
+    			  var coorMarcador = new google.maps.LatLng(coordenadas.lat,coordenadas.lon);
+                
+	            var marcador = new google.maps.Marker({
+	                position: coorMarcador,
+	                map: map,
+	                title: "Dónde estoy?"
+	            });
+
+		}
+
+		function nofound (position){
+			console.log("nofound");
+		}
+		</script>
+		<title>GEOLOCALIZACION CON HTML5 y NODEJS</title>
+	</head>
+
+	<body>
+		<h1>GEOLOCALIZACION CON HTML5 y NODEJS</h1>
+
+		<div id="mapa" style='width:100%; height:400px;'></div>
+	</body>
+	
+</html>
